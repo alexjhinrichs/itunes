@@ -30,7 +30,12 @@ app.controller('mainCtrl', function($scope, itunesService){
   //Also note that that method should be retuning a promise, so you could use .then in this function.
     
     //Code here
-
+    $scope.getSongData = function() {
+      itunesService.getArtists($scope.artist).then(function(result) {
+        $scope.songData = result;
+        console.log(result);
+    });
+    };
 
   //Check that the above method is working by entering a name into the input field on your web app, and then console.log the result
 
